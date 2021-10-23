@@ -18,6 +18,7 @@ WriteMakefile(
 		'Test::NoWarnings' => 0,
 		# 'Test::Kwalitee' => 0,
 		'Test::Warn' => 0,
+		'utf8::all' => 0,
 	}, PREREQ_PM => {
 	}, dist		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 	clean		=> { FILES => 'Lingua-FR-Numbers-Ordinate-*' },

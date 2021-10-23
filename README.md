@@ -1,20 +1,22 @@
 # NAME
 
-Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4e")
+Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4ème")
 
 # VERSION
 
-Version 0.03
+Version 0.04
 
 # SYNOPSIS
 
     use Lingua::FR::Numbers::Ordinate;
+    use utf8::all;
+
     print Lingua::FR::Numbers::Ordinate::ordinate(4), "\n";
 
 # DESCRIPTION
 
-Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2e, 3e)
-amd vice versa.
+Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2ème, 3ème)
+and vice versa.
 
 # SUBROUTINES/METHODS
 
@@ -56,6 +58,6 @@ You can also look for information at:
 
 # LICENSE AND COPYRIGHT
 
-Copyright 2020 Nigel Horne
+Copyright 2020-2021 Nigel Horne
 
 This program is released under the following licence: GPL2

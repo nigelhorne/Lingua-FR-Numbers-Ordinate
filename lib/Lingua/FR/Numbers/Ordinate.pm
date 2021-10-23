@@ -4,27 +4,31 @@ use 5.006;
 use strict;
 use warnings;
 
+=encoding UTF-8
+
 =head1 NAME
 
-Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4eme")
+Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4ème")
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
     use Lingua::FR::Numbers::Ordinate;
+    use utf8::all;
+
     print Lingua::FR::Numbers::Ordinate::ordinate(4), "\n";
 
 =head1 DESCRIPTION
 
-Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2eme, 3eme)
-amd vice versa.
+Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2ème, 3ème)
+and vice versa.
 
 =head1 SUBROUTINES/METHODS
 
@@ -39,7 +43,7 @@ sub ordinate
 	my $cardinal = shift;
 
 	if(!defined($cardinal)) {
-		return '0eme';
+		return "0\N{U+00E8}me";
 	}
 	if($cardinal !~ /[\d\-]+/) {
 		warn 'Usage: ', __PACKAGE__, ':ordinate(number)';
@@ -48,7 +52,7 @@ sub ordinate
 	if($cardinal == 1) {
 		return '1er';
 	}
-	return $cardinal . 'eme';
+	return $cardinal . "\N{U+00E8}me";	# ème
 }
 
 =head1 AUTHOR
