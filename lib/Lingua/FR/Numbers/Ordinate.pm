@@ -6,7 +6,7 @@ use warnings;
 
 =head1 NAME
 
-Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4e")
+Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4eme")
 
 =head1 VERSION
 
@@ -23,7 +23,7 @@ our $VERSION = '0.03';
 
 =head1 DESCRIPTION
 
-Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2e, 3e)
+Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2eme, 3eme)
 amd vice versa.
 
 =head1 SUBROUTINES/METHODS
@@ -39,7 +39,7 @@ sub ordinate
 	my $cardinal = shift;
 
 	if(!defined($cardinal)) {
-		return '0e';
+		return '0eme';
 	}
 	if($cardinal !~ /[\d\-]+/) {
 		warn 'Usage: ', __PACKAGE__, ':ordinate(number)';
@@ -48,7 +48,7 @@ sub ordinate
 	if($cardinal == 1) {
 		return '1er';
 	}
-	return $cardinal . 'e';
+	return $cardinal . 'eme';
 }
 
 =head1 AUTHOR
@@ -89,7 +89,7 @@ L<http://search.cpan.org/dist/Lingua-FR-Numbers-Ordinate/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2020 Nigel Horne
+Copyright 2020-2021 Nigel Horne
 
 This program is released under the following licence: GPL2
 

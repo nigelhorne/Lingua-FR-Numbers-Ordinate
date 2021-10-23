@@ -7,6 +7,8 @@ MANIFEST			This list of files
 README.md
 t/00-load.t
 t/coverage.t
+t/eof.t
+t/eol.t
 t/ordinate.t
 t/pod-cm.t
 t/pod.t
