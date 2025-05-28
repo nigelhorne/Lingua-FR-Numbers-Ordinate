@@ -15,22 +15,46 @@ Version 0.04
 
 # DESCRIPTION
 
-Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2ème, 3ème)
+Concert from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2ème, 3ème)
 and vice versa.
 
 # SUBROUTINES/METHODS
 
 ## ordinate
 
-Translate a given number into the ordinal form.
+    my $ordinal = ordinate($number);
+    my $ordinal = ordinate($number, $gender);
+
+Convert a cardinal number into its ordinal French representation.
+
+- `$number` (required)
+
+    The cardinal number to convert. Must be an integer or numeric string. If undefined, returns `"0ème"`.
+
+- `$gender` (optional)
+
+    Specifies the grammatical gender to use for the ordinal form of `1`. 
+
+    Valid values are:
+
+    - `'m'` — masculine (default): returns `"1er"`
+    - `'f'` — feminine: returns `"1re"`
+
+    This parameter has no effect for numbers other than `1`.
+
+### Examples
+
+    ordinate(1)         => "1er"
+    ordinate(1, 'm')     => "1er"
+    ordinate(1, 'f')     => "1re"
+    ordinate(2)         => "2ème"
+    ordinate(undef)     => "0ème"
 
 # AUTHOR
 
-Nigel Horne, `<njh at bandsman.co.uk>`
+Nigel Horne, `<njh at nigelhorne.com>`
 
 # BUGS
-
-It's up to you do add an e to a feminine use of ordinate(1);
 
 # SEE ALSO
 
@@ -38,9 +62,11 @@ It's up to you do add an e to a feminine use of ordinate(1);
 
 # SUPPORT
 
+This module is provided as-is without any warranty.
+
 You can find documentation for this module with the perldoc command.
 
-    perldoc Lingua::FR::Numbers::Ordinate
+        perldoc Lingua::FR::Numbers::Ordinate
 
 You can also look for information at:
 
@@ -58,6 +84,6 @@ You can also look for information at:
 
 # LICENSE AND COPYRIGHT
 
-Copyright 2020-2021 Nigel Horne
+Copyright 2020-2025 Nigel Horne
 
 This program is released under the following licence: GPL2
