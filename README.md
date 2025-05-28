@@ -44,11 +44,26 @@ Convert a cardinal number into its ordinal French representation.
 
 ### Examples
 
-    ordinate(1)         => "1er"
-    ordinate(1, 'm')     => "1er"
-    ordinate(1, 'f')     => "1re"
-    ordinate(2)         => "2ème"
-    ordinate(undef)     => "0ème"
+    ordinate(1) => "1er"
+    ordinate(1, 'm') => "1er"
+    ordinate(1, 'f') => "1re"
+    ordinate(2) => "2ème"
+    ordinate(undef)=> "0ème"
+
+## cardinal
+
+    my $number = cardinal($ordinal);
+
+Convert an ordinal string (e.g., `"2ème"`, `"1er"`) back to its numeric cardinal form.
+
+Returns the corresponding number or `undef` if the input is invalid.
+
+### Examples
+
+    cardinal("1er") => 1
+    cardinal("1re") => 1
+    cardinal("2ème")=> 2
+    cardinal("4.5ème") => 4.5
 
 # AUTHOR
 
