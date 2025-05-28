@@ -68,11 +68,11 @@ This parameter has no effect for numbers other than C<1>.
 
 =head3 Examples
 
-    ordinate(1)		=> "1er"
-    ordinate(1, 'm')	 => "1er"
-    ordinate(1, 'f')	 => "1re"
-    ordinate(2)		=> "2ème"
-    ordinate(undef)	=> "0ème"
+    ordinate(1) => "1er"
+    ordinate(1, 'm') => "1er"
+    ordinate(1, 'f') => "1re"
+    ordinate(2) => "2ème"
+    ordinate(undef)=> "0ème"
 
 =cut
 
@@ -89,7 +89,7 @@ sub ordinate {
 	}
 
 	if($cardinal == 1) {
-		if(defined $gender && $gender eq 'f') {
+		if((defined($gender)) && ($gender eq 'f')) {
 			return '1re';
 		} else {
 			return '1er';
@@ -97,6 +97,39 @@ sub ordinate {
 	}
 
 	return $cardinal . "\N{U+00E8}me";  # ème
+}
+
+=head2 cardinal
+
+    my $number = cardinal($ordinal);
+
+Convert an ordinal string (e.g., C<"2ème">, C<"1er">) back to its numeric cardinal form.
+
+Returns the corresponding number or C<undef> if the input is invalid.
+
+=head3 Examples
+
+    cardinal("1er") => 1
+    cardinal("1re") => 1
+    cardinal("2ème")=> 2
+    cardinal("4.5ème") => 4.5
+
+=cut
+
+sub cardinal {
+    my $ordinal = shift;
+
+    return unless defined $ordinal;
+
+    # Trim leading/trailing whitespace
+    $ordinal =~ s/^\s+|\s+$//g;
+
+    # Match digit/floating-point part followed by allowed suffixes (er, re, ème)
+    if ($ordinal =~ /^(\d+(?:\.\d+)?)(?:er|re|(?:\N{U+00E8})me)$/) {
+        return 0 + $1;  # Ensure numeric context
+    }
+
+    return;
 }
 
 =head1 AUTHOR
