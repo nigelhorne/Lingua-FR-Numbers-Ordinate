@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker 6.64;	# 6.64 for TEST_REQUIRES
 
 WriteMakefile(
 	NAME		=> 'Lingua::FR::Numbers::Ordinate',
-	AUTHOR		=> q{Nigel Horne <njh@bandsman.co.uk>},
+	AUTHOR		=> q{Nigel Horne <njh@nigelhorne.com>},
 	VERSION_FROM	=> 'lib/Lingua/FR/Numbers/Ordinate.pm',
 	ABSTRACT_FROM	   => 'lib/Lingua/FR/Numbers/Ordinate.pm',
 	((defined($ExtUtils::MakeMaker::VERSION) &&
@@ -13,9 +13,11 @@ WriteMakefile(
 	  : ()),
 	PL_FILES	=> {},
 	TEST_REQUIRES => {
+		'Test::DescribeMe' => 0,
 		'Test::Exception' => 0.42,
 		'Test::Most' => 0,
 		'Test::NoWarnings' => 0,
+		'Test::Needs' => 0,
 		# 'Test::Kwalitee' => 0,
 		'Test::Warn' => 0,
 		'utf8::all' => 0,
