@@ -15,11 +15,11 @@ Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4ème")
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 SYNOPSIS
 
