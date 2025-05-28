@@ -4,7 +4,7 @@ Lingua::FR::Numbers::Ordinate - Go from cardinal number (4) to ordinal ("4ème")
 
 # VERSION
 
-Version 0.04
+Version 0.05
 
 # SYNOPSIS
 
