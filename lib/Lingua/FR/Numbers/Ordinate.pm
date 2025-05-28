@@ -158,10 +158,6 @@ You can also look for information at:
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Lingua-FR-Numbers-Ordinate>
 
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/Lingua-FR-Numbers-Ordinate>
-
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/Lingua-FR-Numbers-Ordinate/>

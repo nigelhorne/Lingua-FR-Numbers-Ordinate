@@ -89,10 +89,6 @@ You can also look for information at:
 
     [http://rt.cpan.org/NoAuth/Bugs.html?Dist=Lingua-FR-Numbers-Ordinate](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Lingua-FR-Numbers-Ordinate)
 
-- CPAN Ratings
-
-    [http://cpanratings.perl.org/d/Lingua-FR-Numbers-Ordinate](http://cpanratings.perl.org/d/Lingua-FR-Numbers-Ordinate)
-
 - Search CPAN
 
     [http://search.cpan.org/dist/Lingua-FR-Numbers-Ordinate/](http://search.cpan.org/dist/Lingua-FR-Numbers-Ordinate/)
