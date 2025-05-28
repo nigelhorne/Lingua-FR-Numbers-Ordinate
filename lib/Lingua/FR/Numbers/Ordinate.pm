@@ -27,20 +27,56 @@ our $VERSION = '0.04';
 
 =head1 DESCRIPTION
 
-Translate from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2ème, 3ème)
+Concert from cardinal numbers (1, 2, 3) to ordinal numbers (1er, 2ème, 3ème)
 and vice versa.
 
 =head1 SUBROUTINES/METHODS
 
 =head2 ordinate
 
-Translate a given number into the ordinal form.
+    my $ordinal = ordinate($number);
+    my $ordinal = ordinate($number, $gender);
+
+Convert a cardinal number into its ordinal French representation.
+
+=over 4
+
+=item * C<$number> (required)
+
+The cardinal number to convert. Must be an integer or numeric string. If undefined, returns C<"0ème">.
+
+=item * C<$gender> (optional)
+
+Specifies the grammatical gender to use for the ordinal form of C<1>. 
+
+Valid values are:
+
+=over 4
+
+=item * C<'m'> — masculine (default): returns C<"1er">
+
+=item * C<'f'> — feminine: returns C<"1re">
+
+=back
+
+This parameter has no effect for numbers other than C<1>.
+
+=back
+
+=head3 Examples
+
+    ordinate(1)          => "1er"
+    ordinate(1, 'm')     => "1er"
+    ordinate(1, 'f')     => "1re"
+    ordinate(2)          => "2ème"
+    ordinate(undef)      => "0ème"
 
 =cut
 
 sub ordinate
 {
-	my $cardinal = shift;
+	my ($cardinal, $gender) = @_;
+	
 
 	if(!defined($cardinal)) {
 		return "0\N{U+00E8}me";
@@ -49,9 +85,9 @@ sub ordinate
 		warn 'Usage: ', __PACKAGE__, ':ordinate(number)';
 		return;
 	}
-	if($cardinal == 1) {
-		return '1er';
-	}
+	return '1er' if($cardinal == 1) && (!$gender || $gender eq 'm');
+	return '1re' if($cardinal == 1) && ($gender eq 'f');
+
 	return $cardinal . "\N{U+00E8}me";	# ème
 }
 
@@ -93,7 +129,7 @@ L<http://search.cpan.org/dist/Lingua-FR-Numbers-Ordinate/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2020-2021 Nigel Horne
+Copyright 2020-2025 Nigel Horne
 
 This program is released under the following licence: GPL2
 
