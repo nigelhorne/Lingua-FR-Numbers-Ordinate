@@ -1,8 +1,11 @@
 package Lingua::FR::Numbers::Ordinate;
 
 use 5.006;
+
 use strict;
 use warnings;
+
+use Scalar::Util qw(looks_like_number);
 
 =encoding UTF-8
 
@@ -65,30 +68,35 @@ This parameter has no effect for numbers other than C<1>.
 
 =head3 Examples
 
-    ordinate(1)          => "1er"
-    ordinate(1, 'm')     => "1er"
-    ordinate(1, 'f')     => "1re"
-    ordinate(2)          => "2ème"
-    ordinate(undef)      => "0ème"
+    ordinate(1)		=> "1er"
+    ordinate(1, 'm')	 => "1er"
+    ordinate(1, 'f')	 => "1re"
+    ordinate(2)		=> "2ème"
+    ordinate(undef)	=> "0ème"
 
 =cut
 
-sub ordinate
-{
+sub ordinate {
 	my ($cardinal, $gender) = @_;
-	
 
 	if(!defined($cardinal)) {
 		return "0\N{U+00E8}me";
 	}
-	if($cardinal !~ /[\d\-]+/) {
-		warn 'Usage: ', __PACKAGE__, ':ordinate(number)';
+
+	if(!looks_like_number($cardinal)) {
+		warn 'Usage: ', __PACKAGE__, '::ordinate(number)';
 		return;
 	}
-	return '1er' if($cardinal == 1) && (!$gender || $gender eq 'm');
-	return '1re' if($cardinal == 1) && ($gender eq 'f');
 
-	return $cardinal . "\N{U+00E8}me";	# ème
+	if($cardinal == 1) {
+		if(defined $gender && $gender eq 'f') {
+			return '1re';
+		} else {
+			return '1er';
+		}
+	}
+
+	return $cardinal . "\N{U+00E8}me";  # ème
 }
 
 =head1 AUTHOR
@@ -97,17 +105,17 @@ Nigel Horne, C<< <njh at nigelhorne.com> >>
 
 =head1 BUGS
 
-It's up to you do add an e to a feminine use of ordinate(1);
-
 =head1 SEE ALSO
 
 L<Lingua::EN::Numbers::Ordinate>
 
 =head1 SUPPORT
 
+This module is provided as-is without any warranty.
+
 You can find documentation for this module with the perldoc command.
 
-    perldoc Lingua::FR::Numbers::Ordinate
+	perldoc Lingua::FR::Numbers::Ordinate
 
 You can also look for information at:
 

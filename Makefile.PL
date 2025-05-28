@@ -20,8 +20,9 @@ WriteMakefile(
 		'Test::Needs' => 0,
 		# 'Test::Kwalitee' => 0,
 		'Test::Warn' => 0,
-		'utf8::all' => 0,
+		'utf8::all' => 0
 	}, PREREQ_PM => {
+		'Scalar::Util' => 0
 	}, dist		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 	clean		=> { FILES => 'Lingua-FR-Numbers-Ordinate-*' },
 	# META_ADD => {

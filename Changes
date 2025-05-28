@@ -3,6 +3,7 @@ Revision history for Perl module Lingua::FR::Numbers::Ordinate
 0.05
 	Use Test::DescribeMe and Test::Needs to simplify tests
 	Added the gender parameter
+	Repacled the regex with Scalar::Util::looks_like_number
 
 0.04	Sat Oct 23 09:58:05 EDT 2021
 	Fix 19th
